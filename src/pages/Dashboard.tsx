@@ -38,7 +38,8 @@ export function DashboardPage() {
 
   useEffect(() => {
     let cancelled = false;
-    setLoading(true);
+    // Keep existing metrics visible while refetching so filters feel instant
+    if (!metrics) setLoading(true);
     setError(null);
 
     void getDashboardMetrics(filters)
@@ -81,7 +82,7 @@ export function DashboardPage() {
 
         <FilterBar filteredCount={filteredCount} />
 
-        {loading ? <LoadingState label="Loading dashboard…" /> : null}
+        {loading && !metrics ? <LoadingState label="Loading dashboard…" /> : null}
         {error ? <ErrorState message={error} /> : null}
 
         {showEmpty ? (

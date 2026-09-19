@@ -11,7 +11,7 @@ import type { FeedbackResponse } from '../types/feedback';
  * 2. Swap the source in src/services/dataService.ts
  */
 export const DEMO_DATA_LABEL =
-  'DEMO DATA — Replace with real PurePaw responses';
+  'Replace with real PurePaw responses';
 
 export const demoResponses: FeedbackResponse[] = [
   {
